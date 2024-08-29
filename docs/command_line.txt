@@ -1,0 +1,5 @@
+#generate migration
+npm run typeorm migration:generate ./src/migrations/<NamaMigration> -- -d ./src/data-source.ts
+
+#run migration
+npx typeorm-ts-node-commonjs migration:run --dataSource ./src/data-source.ts

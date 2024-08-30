@@ -1,4 +1,5 @@
 import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter, HttpException } from "@nestjs/common";
+import { TokenExpiredError } from "@nestjs/jwt";
 
 @Catch(HttpException)
 export class ErrorFilter implements ExceptionFilter {
@@ -17,6 +18,12 @@ export class ErrorFilter implements ExceptionFilter {
                 statusCode: exception.getStatus(),
                 success: false,
                 message: `${message}`
+            })
+        } else if (exception instanceof TokenExpiredError) {
+            response.status(401).json({
+                statusCode: 401,
+                success: false,
+                message: `Unauthrized. ${exception.message}`
             })
         } else {
             response.status(exception.getStatus()).json({

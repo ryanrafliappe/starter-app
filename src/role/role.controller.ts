@@ -1,11 +1,10 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { RoleService } from './role.service';
 import { WebResponse } from '../model/web.model';
-import { Role } from '../database/entities/role.entity';
 import { CONSTANTS } from '../common/constants';
 import { CreateRoleDto, RoleResponseDto, UpdateRoleDto } from './role.dto';
 
-@Controller('roles')
+@Controller('api/roles')
 export class RoleController {
     constructor(private readonly roleService: RoleService) {}
 

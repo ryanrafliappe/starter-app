@@ -1,11 +1,11 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { PermissionService } from './permission.service';
 import { Permission } from '../database/entities/permission.entity';
 import { WebResponse } from '../model/web.model';
 import { CONSTANTS } from '../common/constants';
 import { PermissionRequestDto, PermissionResponseDto } from './permission.dto';
 
-@Controller('permission')
+@Controller('api/permission')
 export class PermissionController {
     constructor(private readonly permissionService: PermissionService) {}
 

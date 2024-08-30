@@ -4,7 +4,7 @@ import { WebResponse } from '../model/web.model';
 import { CONSTANTS } from '../common/constants';
 import { CreateUserDto, UpdateUserDto, UpdateUserPasswordDto, UserResponseDto } from './user.dto';
 
-@Controller('user')
+@Controller('api/user')
 export class UserController {
     constructor(private userService: UserService) {}
 
